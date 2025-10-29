@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\marti\\source\\repos\\ds4\\Parcial2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3149D82A-E7D4-48B6-8B26-FAD45197493F}|Parcial2\\Parcial2.csproj|c:\\users\\marti\\source\\repos\\ds4\\parcial2\\parcial2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3149D82A-E7D4-48B6-8B26-FAD45197493F}|Parcial2\\Parcial2.csproj|solutionrelative:parcial2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3149D82A-E7D4-48B6-8B26-FAD45197493F}|Parcial2\\Parcial2.csproj|c:\\users\\marti\\source\\repos\\ds4\\parcial2\\parcial2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3149D82A-E7D4-48B6-8B26-FAD45197493F}|Parcial2\\Parcial2.csproj|solutionrelative:parcial2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 107,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\source\\repos\\ds4\\Parcial2\\Parcial2\\Form1.cs",
+              "RelativeDocumentMoniker": "Parcial2\\Form1.cs",
+              "ToolTip": "C:\\Users\\marti\\source\\repos\\ds4\\Parcial2\\Parcial2\\Form1.cs",
+              "RelativeToolTip": "Parcial2\\Form1.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAA7wHcAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T00:04:48.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\marti\\source\\repos\\ds4\\Parcial2\\Parcial2\\Form1.cs",
+              "RelativeDocumentMoniker": "Parcial2\\Form1.cs",
+              "ToolTip": "C:\\Users\\marti\\source\\repos\\ds4\\Parcial2\\Parcial2\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Parcial2\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T23:44:53.286Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
