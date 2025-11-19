@@ -92,7 +92,6 @@ namespace Proyecto1
 
         private void btnIgual_Click(object sender, EventArgs e)
         {
-            //PROBLEMAS A LA HORA DE REALIZAR RAIZ CUADRADA Y CUADRADO
             valor2 = double.Parse(txtResultado.Text);
             txtOperacion.Text += txtResultado.Text;
             string formula = txtOperacion.Text;
@@ -144,7 +143,7 @@ namespace Proyecto1
         private void btnResta_Click(object sender, EventArgs e)
         {
             valor1 = double.Parse(txtResultado.Text);
-            txtOperacion.Text += txtResultado + "-";
+            txtOperacion.Text += txtResultado.Text + "-";
             operacion = "-";
             txtResultado.Clear();
         }
