@@ -1,0 +1,16 @@
+CREATE DATABASE Parcial3DB;
+GO
+
+USE Parcial3DB;
+GO
+
+CREATE TABLE CasosLegales (
+    Id INT PRIMARY KEY,
+    Cliente NVARCHAR(100) NOT NULL,
+    TipoCaso NVARCHAR(100) NOT NULL,
+    Abogado NVARCHAR(100) NOT NULL,
+    FechaLimite DATE NOT NULL,
+    Estado NVARCHAR(20) NOT NULL
+);
+SELECT *
+FROM CasosLegales;
