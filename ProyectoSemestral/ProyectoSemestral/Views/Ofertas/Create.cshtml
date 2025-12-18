@@ -1,0 +1,38 @@
+﻿@model BolsaTrabajoWeb.Models.OfertaCreateVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Publicar oferta</h3>
+
+@using (Html.BeginForm())
+{
+    <div class="mb-3">
+        <label>Título</label>
+        @Html.TextBoxFor(m => m.Titulo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Titulo)
+    </div>
+
+    <div class="mb-3">
+        <label>Descripción</label>
+        @Html.TextAreaFor(m => m.Descripcion, new { @class = "form-control", rows = "5" })
+        @Html.ValidationMessageFor(m => m.Descripcion)
+    </div>
+
+    <div class="mb-3">
+        <label>Ubicación</label>
+        @Html.TextBoxFor(m => m.Ubicacion, new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        <label>Tipo</label>
+        @Html.TextBoxFor(m => m.Tipo, new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        <label>Salario</label>
+        @Html.TextBoxFor(m => m.Salario, new { @class = "form-control", type = "number", step = "0.01" })
+    </div>
+
+    <button class="btn btn-primary">Publicar</button>
+}

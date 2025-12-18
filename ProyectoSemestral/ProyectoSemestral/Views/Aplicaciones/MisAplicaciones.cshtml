@@ -1,0 +1,38 @@
+﻿@using System.Data
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var dt = ViewBag.Data as DataTable;
+}
+
+<h3>Mis aplicaciones</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Oferta</th>
+            <th>Empresa</th>
+            <th>Ubicación</th>
+            <th>Estado</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (dt == null || dt.Rows.Count == 0)
+        {
+            <tr><td colspan="5">Aún no has aplicado a ninguna oferta.</td></tr>
+        }
+        else
+        {
+            foreach (DataRow r in dt.Rows)
+            {
+                <tr>
+                    <td>@r["Titulo"]</td>
+                    <td>@r["Empresa"]</td>
+                    <td>@r["Ubicacion"]</td>
+                    <td>@r["Estado"]</td>
+                    <td>@r["FechaAplicacion"]</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

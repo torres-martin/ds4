@@ -1,0 +1,30 @@
+﻿@model BolsaTrabajoWeb.Models.PerfilEmpleadorVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Perfil de empresa (Empleador)</h3>
+
+@if (ViewBag.Ok != null)
+{<div class="alert alert-success">@ViewBag.Ok</div>}
+
+@using (Html.BeginForm())
+{
+    <div class="mb-3">
+        <label>Empresa</label>
+        @Html.TextBoxFor(m => m.Empresa, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Empresa)
+    </div>
+
+    <div class="mb-3">
+        <label>Sitio web</label>
+        @Html.TextBoxFor(m => m.SitioWeb, new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        <label>Descripción</label>
+        @Html.TextAreaFor(m => m.Descripcion, new { @class = "form-control", rows = "4" })
+    </div>
+
+    <button class="btn btn-primary">Guardar</button>
+}

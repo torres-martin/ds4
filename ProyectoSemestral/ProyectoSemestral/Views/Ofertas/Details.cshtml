@@ -1,0 +1,33 @@
+﻿@using System.Data
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var r = ViewBag.Row as DataRow;
+    var u = Session["USER"] as BolsaTrabajoWeb.Models.SessionUser;
+}
+
+<h3>@r["Titulo"]</h3>
+
+<div class="card">
+    <div class="card-body">
+        <p><b>Empresa:</b> @r["Empresa"]</p>
+        <p><b>Ubicación:</b> @r["Ubicacion"]</p>
+        <p><b>Tipo:</b> @r["Tipo"]</p>
+        <p><b>Salario:</b> @r["Salario"]</p>
+        <hr />
+        <p>@r["Descripcion"]</p>
+
+        @if (TempData["Ok"] != null)
+        {<div class="alert alert-success mt-3">@TempData["Ok"]</div>}
+        @if (TempData["Error"] != null)
+        {<div class="alert alert-danger mt-3">@TempData["Error"]</div>}
+
+        @if (u != null && u.Rol == "Empleado")
+        {
+            using (Html.BeginForm("Aplicar", "Aplicaciones", FormMethod.Post))
+            {
+                @Html.Hidden("ofertaId", r["OfertaId"])
+                <button class="btn btn-success">Aplicar</button>
+            }
+        }
+    </div>
+</div>

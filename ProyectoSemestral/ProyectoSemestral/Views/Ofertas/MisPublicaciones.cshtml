@@ -1,0 +1,43 @@
+﻿@using System.Data
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var dt = ViewBag.Data as DataTable;
+}
+
+<h3>Mis publicaciones</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Ubicación</th>
+            <th>Tipo</th>
+            <th>Activo</th>
+            <th>Fecha</th>
+            <th>Aplicaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (dt == null || dt.Rows.Count == 0)
+        {
+            <tr><td colspan="6">No hay ofertas publicadas.</td></tr>
+        }
+        else
+        {
+            foreach (DataRow r in dt.Rows)
+            {
+                <tr>
+                    <td>@r["Titulo"]</td>
+                    <td>@r["Ubicacion"]</td>
+                    <td>@r["Tipo"]</td>
+                    <td>@r["Activo"]</td>
+                    <td>@r["FechaPublicacion"]</td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-primary"
+                           href="@Url.Action("Recibidas","Aplicaciones", new { ofertaId = r["OfertaId"] })">Ver</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

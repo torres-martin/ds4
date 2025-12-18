@@ -1,0 +1,95 @@
+﻿@model BolsaTrabajoWeb.Models.OfertaSearchVM
+@using System.Data
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var dt = ViewBag.Data as DataTable;
+}
+
+<h3 class="mb-3">Ofertas de trabajo</h3>
+
+<div class="glass-card mb-4">
+    <form class="row g-3 align-items-end" method="get">
+        <div class="col-md-5">
+            <label class="form-label mb-1 text-muted">Búsqueda</label>
+            <input class="form-control"
+                   name="Texto"
+                   value="@Model.Texto"
+                   placeholder="Buscar por título o descripción" />
+        </div>
+
+        <div class="col-md-3">
+            <label class="form-label mb-1 text-muted">Ubicación</label>
+            <input class="form-control"
+                   name="Ubicacion"
+                   value="@Model.Ubicacion"
+                   placeholder="Ej: Albrook, Altaplaza..." />
+        </div>
+
+        <div class="col-md-3">
+            <label class="form-label mb-1 text-muted">Tipo</label>
+            <input class="form-control"
+                   name="Tipo"
+                   value="@Model.Tipo"
+                   placeholder="Presencial, Híbrido..." />
+        </div>
+        <div class="col-md-1 d-grid">
+            <button class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+</div>
+
+@if (TempData["Ok"] != null)
+{
+    <div class="alert alert-success mb-3">@TempData["Ok"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger mb-3">@TempData["Error"]</div>
+}
+<div class="glass-card table-wrap">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Empresa</th>
+                <th>Ubicación</th>
+                <th>Tipo</th>
+                <th>Salario</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (dt == null || dt.Rows.Count == 0)
+            {
+                <tr>
+                    <td colspan="6" class="text-center text-muted">
+                        No hay resultados.
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (DataRow r in dt.Rows)
+                {
+                    <tr>
+                        <td>@r["Titulo"]</td>
+                        <td>@r["Empresa"]</td>
+                        <td>@r["Ubicacion"]</td>
+                        <td>
+                            <span class="badge bg-secondary">
+                                @r["Tipo"]
+                            </span>
+                        </td>
+                        <td>
+                            @string.Format("{0:C}", r["Salario"])
+                        </td>
+                        <td>
+                            <a class="btn-link-pill"
+                               href="@Url.Action("Details","Ofertas", new { id = r["OfertaId"] })">Ver</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

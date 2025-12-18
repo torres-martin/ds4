@@ -1,0 +1,46 @@
+﻿@model BolsaTrabajoWeb.Models.PerfilEmpleadoVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Mi perfil (Empleado)</h3>
+
+@if (ViewBag.Ok != null)
+{<div class="alert alert-success">@ViewBag.Ok</div>}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="mb-3">
+        <label>Nombre completo</label>
+        @Html.TextBoxFor(m => m.NombreCompleto, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.NombreCompleto)
+    </div>
+
+    <div class="mb-3">
+        <label>Teléfono</label>
+        @Html.TextBoxFor(m => m.Telefono, new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        <label>Ubicación</label>
+        @Html.TextBoxFor(m => m.Ubicacion, new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        <label>Resumen</label>
+        @Html.TextAreaFor(m => m.Resumen, new { @class = "form-control", rows = "4" })
+    </div>
+
+    <div class="mb-3">
+        <label>Subir CV (PDF)</label>
+        <input type="file" name="cvFile" class="form-control" />
+        @if (!string.IsNullOrEmpty(Model.CvUrl))
+        {
+            <div class="mt-2">
+                <a href="@Model.CvUrl" target="_blank">Ver CV</a>
+            </div>
+        }
+    </div>
+
+    <button class="btn btn-primary">Guardar</button>
+}

@@ -1,0 +1,66 @@
+﻿@using System.Data
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var dt = ViewBag.Data as DataTable;
+    int ofertaId = (int)ViewBag.OfertaId;
+}
+
+<h3>Aplicaciones recibidas</h3>
+
+@if (TempData["Ok"] != null)
+{<div class="alert alert-success">@TempData["Ok"]</div>}
+@if (TempData["Error"] != null)
+{<div class="alert alert-danger">@TempData["Error"]</div>}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Empleado</th>
+            <th>Email</th>
+            <th>CV</th>
+            <th>Estado</th>
+            <th>Comentario</th>
+            <th>Cambiar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (dt == null || dt.Rows.Count == 0)
+        {
+            <tr><td colspan="6">No hay aplicaciones.</td></tr>
+        }
+        else
+        {
+            foreach (DataRow r in dt.Rows)
+            {
+                <tr>
+                    <td>@r["NombreCompleto"]</td>
+                    <td>@r["Email"]</td>
+                    <td>
+                        @if (r["CvUrl"] != DBNull.Value)
+                        {
+                            <a href="@r["CvUrl"]" target="_blank">Ver CV</a>
+                        }
+                        else
+                        { <span>-</span>}
+                    </td>
+                    <td>@r["Estado"]</td>
+                    <td>@r["Comentario"]</td>
+                    <td>
+                        @using (Html.BeginForm("CambiarEstado", "Aplicaciones", FormMethod.Post))
+                        {
+                            @Html.Hidden("ofertaId", ofertaId)
+                            @Html.Hidden("aplicacionId", r["AplicacionId"])
+                            <select class="form-select form-select-sm" name="nuevoEstado">
+                                <option>EnRevision</option>
+                                <option>Aceptada</option>
+                                <option>Rechazada</option>
+                            </select>
+                            <input class="form-control form-control-sm mt-1" name="comentario" placeholder="Comentario (opcional)" />
+                            <button class="btn btn-sm btn-primary mt-1">Guardar</button>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

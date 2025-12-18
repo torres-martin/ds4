@@ -1,0 +1,35 @@
+﻿@model BolsaTrabajoWeb.Models.RegisterVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Registro</h3>
+
+@if (ViewBag.Error != null)
+{<div class="alert alert-danger">@ViewBag.Error</div>}
+
+@using (Html.BeginForm())
+{
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+
+    <div class="mb-3">
+        <label>Rol</label>
+        @Html.DropDownListFor(m => m.Rol,
+            new SelectList((string[])ViewBag.Roles),
+            "Seleccione",
+            new { @class = "form-select" })
+        @Html.ValidationMessageFor(m => m.Rol)
+    </div>
+
+    <button class="btn btn-success">Crear cuenta</button>
+}
